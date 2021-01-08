@@ -7,6 +7,7 @@ After sign process completed then login
 ![Screenshot (47)](https://user-images.githubusercontent.com/63060370/104005747-9b42f680-51cb-11eb-8230-8f718dcd6323.png)
 
 ![Screenshot (48)](https://user-images.githubusercontent.com/63060370/104005752-9c742380-51cb-11eb-83be-07517a10fb01.png)
-this is property page or setting through which admin can change the duration of exam
+Through this page techers or admin can give question dynamically to the exam page
 ![Screenshot (49)](https://user-images.githubusercontent.com/63060370/104005759-9da55080-51cb-11eb-9d90-c3b51adef746.png)
+this is property page or setting through which admin can change the duration of exam
 ![Screenshot (50)](https://user-images.githubusercontent.com/63060370/104005761-9e3de700-51cb-11eb-8837-24540b5a8b29.png)
