@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ExaminationDetails" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c5a0caab-3caf-4bd7-acbd-9f108ba15c35">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     examinations.`id` AS examinations_id,
+     examinations.`answer` AS examinations_answer,
+     examinations.`marks` AS examinations_marks,
+     examinations.`result` AS examinations_result,
+     examinations.`status` AS examinations_status,
+     objectives.`id` AS objectives_id,
+     objectives.`answer` AS objectives_answer,
+     objectives.`question` AS objectives_question,
+     users.`name` AS users_name,
+     users.`phone` AS users_phone
+FROM
+     `objectives` objectives INNER JOIN `examinations` examinations ON objectives.`id` = examinations.`objective_id`
+     INNER JOIN `users` users ON examinations.`user_id` = users.`id`]]>
+	</queryString>
+	<field name="examinations_id" class="java.lang.Integer"/>
+	<field name="examinations_answer" class="java.lang.String"/>
+	<field name="examinations_marks" class="java.lang.Integer"/>
+	<field name="examinations_result" class="java.lang.Boolean"/>
+	<field name="examinations_status" class="java.lang.Integer"/>
+	<field name="objectives_id" class="java.lang.Integer"/>
+	<field name="objectives_answer" class="java.lang.String"/>
+	<field name="objectives_question" class="java.lang.String"/>
+	<field name="users_name" class="java.lang.String"/>
+	<field name="users_phone" class="java.lang.String"/>
+	<variable name="marksTotal" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{examinations_marks}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="86" splitType="Stretch">
+			<staticText>
+				<reportElement x="202" y="16" width="161" height="37" uuid="b5366232-eb54-4741-af45-480c77df03af"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Exam Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="15" y="4" width="96" height="21" uuid="90e5eba4-9b2c-442e-bd5a-e5d459599b59"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Student Name :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="121" y="5" width="118" height="20" uuid="372b4122-cb45-40d7-a083-dec95d2b4814"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{users_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="263" y="5" width="66" height="20" uuid="0f9e4081-a4ec-4a07-9d07-a2daaa46aba0"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Phone :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="363" y="5" width="113" height="20" uuid="8fe6f609-19fb-49b3-997e-f4761faa0c84"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{users_phone}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="11" width="100" height="20" uuid="1ed2a41e-6db4-40df-9ea5-20d288b988b8"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Question]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="42" width="555" height="1" uuid="3aa4f5ac-9f8d-422b-ad0a-46b8e5b653e3"/>
+			</line>
+			<staticText>
+				<reportElement x="163" y="11" width="100" height="20" uuid="8b8fc106-57db-42bd-8b1b-a4110c79fbae"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Answer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="11" width="87" height="20" uuid="f378bcfa-f771-4e43-952b-df655ab64e07"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Your Answer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="11" width="100" height="20" uuid="fdfca28d-70e6-4c71-888a-cda139276031"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Marks]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="476" y="11" width="100" height="20" uuid="7cc8da39-1296-4846-96c7-51856943ad21"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Result]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="78" splitType="Stretch">
+			<textField>
+				<reportElement x="11" y="11" width="123" height="45" uuid="b3843a0b-6bd5-4355-a676-c1f86b88cfce"/>
+				<textFieldExpression><![CDATA[$F{objectives_question}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="69" width="555" height="1" uuid="7e94e3c1-64b8-42cc-a487-a266752dfc89"/>
+			</line>
+			<textField>
+				<reportElement x="147" y="11" width="116" height="45" uuid="ee4839cc-828c-4f9e-a151-c7d4f213f310"/>
+				<textFieldExpression><![CDATA[$F{objectives_answer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="276" y="11" width="100" height="45" uuid="8565d388-961d-499a-85ff-460ecd6375a0"/>
+				<textFieldExpression><![CDATA[$F{examinations_answer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="389" y="11" width="55" height="35" uuid="2ae8d5c6-06c5-4f79-809c-ccb32a6f3d1a"/>
+				<textFieldExpression><![CDATA[$F{examinations_marks}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="11" width="74" height="35" uuid="53017f59-cc11-4352-b8fe-d5f6c40dbabc"/>
+				<textFieldExpression><![CDATA[$F{examinations_result}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<lastPageFooter>
+		<band height="44">
+			<textField>
+				<reportElement x="315" y="14" width="129" height="20" uuid="d2e4a2a2-9a94-4ccc-a240-8e9d4014c596"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total Mark:"+$V{marksTotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+</jasperReport>

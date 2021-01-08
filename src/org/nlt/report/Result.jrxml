@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Result" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="be29531f-b487-4ceb-b0e5-b0cf089475da">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     examresults.`id` AS examresults_id,
+     examresults.`examDate` AS examresults_examDate,
+     examresults.`marks` AS examresults_marks,
+     examresults.`result` AS examresults_result,
+     examresults.`status` AS examresults_status,
+     users.`id` AS users_id,
+     users.`className` AS users_className,
+     users.`name` AS users_name,
+     users.`phone` AS users_phone,
+     users.`dob` AS users_dob,
+     users.`email` AS users_email
+FROM
+     `users` users INNER JOIN `examresults` examresults ON users.`id` = examresults.`user_id`]]>
+	</queryString>
+	<field name="examresults_id" class="java.lang.Integer"/>
+	<field name="examresults_examDate" class="java.sql.Date"/>
+	<field name="examresults_marks" class="java.lang.Integer"/>
+	<field name="examresults_result" class="java.lang.String"/>
+	<field name="examresults_status" class="java.lang.Integer"/>
+	<field name="users_id" class="java.lang.Integer"/>
+	<field name="users_className" class="java.lang.String"/>
+	<field name="users_name" class="java.lang.String"/>
+	<field name="users_phone" class="java.lang.String"/>
+	<field name="users_dob" class="java.sql.Date"/>
+	<field name="users_email" class="java.lang.String"/>
+	<variable name="totalQue" class="java.lang.Integer" calculation="Sum"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="239" y="17" width="149" height="33" uuid="ee141768-0733-4ddf-99c9-5760c2863047"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RESULT]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="65" splitType="Stretch">
+			<textField>
+				<reportElement x="18" y="6" width="156" height="19" uuid="ab69d8b4-bf21-44c8-a2da-9c07e26f6046"/>
+				<textFieldExpression><![CDATA["Student Name:"+$F{users_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="314" y="5" width="162" height="20" uuid="41ef1c79-afb7-4477-a661-4bd663e69142"/>
+				<textFieldExpression><![CDATA["Student Id:"+$F{users_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="18" y="35" width="156" height="20" uuid="6ea29f5d-4caa-40ef-963d-df7413ae4a38"/>
+				<textFieldExpression><![CDATA["Email:"+$F{users_email}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="198" splitType="Stretch">
+			<line>
+				<reportElement x="18" y="7" width="507" height="1" uuid="7007e67a-4bf5-40e7-9d88-8be021041827"/>
+			</line>
+			<line>
+				<reportElement x="525" y="7" width="1" height="145" uuid="f50a7d0a-b398-427e-be5d-313467f50056"/>
+			</line>
+			<line>
+				<reportElement x="18" y="7" width="1" height="145" uuid="85bb4f28-48e5-4590-879d-fb37420a56b6"/>
+			</line>
+			<line>
+				<reportElement x="19" y="152" width="506" height="1" uuid="1870b74c-0bae-4eb7-afcb-9bf907fb3c14"/>
+			</line>
+			<line>
+				<reportElement x="19" y="52" width="506" height="1" uuid="8a707d34-e337-4dab-83d2-695232cf04b9"/>
+			</line>
+			<staticText>
+				<reportElement x="30" y="19" width="63" height="33" uuid="d4c94b21-04ea-48f9-80e3-0fdd4ebaa3ce"/>
+				<textElement>
+					<font size="12" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Total Question]]></text>
+			</staticText>
+			<line>
+				<reportElement x="422" y="7" width="2" height="144" uuid="d7627dc9-7252-47d9-9cd8-4e404ee67a17"/>
+			</line>
+			<line>
+				<reportElement x="105" y="9" width="1" height="144" uuid="f641021e-7121-4615-9bc6-46f5ad12160c"/>
+			</line>
+			<line>
+				<reportElement x="194" y="7" width="1" height="144" uuid="0dee795d-1196-4c5b-9e78-e20ae24c7210"/>
+			</line>
+			<line>
+				<reportElement x="313" y="9" width="1" height="144" uuid="f4449ff3-eede-4c3f-bd50-ba18111ba100"/>
+			</line>
+			<staticText>
+				<reportElement x="123" y="19" width="64" height="33" uuid="00cfe3f5-4bb0-41b6-932b-db9e45ff2a93"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Total Marks]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="206" y="17" width="66" height="35" uuid="e08b26bf-6590-474c-a1eb-9d145fe8c2c5"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Marks Obtained]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="324" y="17" width="85" height="35" uuid="ec1f652c-cb95-40ce-bc0b-7ebaea6619e8"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Correct Answer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="429" y="17" width="87" height="33" uuid="41cc50f2-714b-41a5-a3c0-49c0bbdf2483"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Incorrect Answer]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="30" y="61" width="63" height="70" uuid="5e310a06-6663-4e67-84de-b2335bc1bb10"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{examresults_marks}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="64" width="61" height="67" uuid="747e5ccb-faa2-4eb4-9837-ff43b28c9aa4"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{examresults_marks}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="19" y="167" width="157" height="21" uuid="be64dc0a-3f70-4ace-8da2-b2dda206dd9b"/>
+				<textFieldExpression><![CDATA["Result:"+$F{examresults_result}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

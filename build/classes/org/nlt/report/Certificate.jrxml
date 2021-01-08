@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Certificate" language="groovy" pageWidth="850" pageHeight="450" orientation="Landscape" columnWidth="810" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9987366f-af28-419e-8e33-151beda0af7a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="406"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     users.`id` AS users_id,
+     users.`className` AS users_className,
+     users.`created` AS users_created,
+     users.`dob` AS users_dob,
+     users.`email` AS users_email,
+     users.`modified` AS users_modified,
+     users.`name` AS users_name,
+     users.`password` AS users_password,
+     users.`phone` AS users_phone,
+     users.`status` AS users_status,
+     examresults.`id` AS examresults_id,
+     examresults.`created` AS examresults_created,
+     examresults.`examDate` AS examresults_examDate,
+     examresults.`marks` AS examresults_marks,
+     examresults.`modified` AS examresults_modified,
+     examresults.`result` AS examresults_result,
+     examresults.`status` AS examresults_status,
+     examresults.`user_id` AS examresults_user_id,
+     examinations.`id` AS examinations_id,
+     examinations.`answer` AS examinations_answer,
+     examinations.`created` AS examinations_created,
+     examinations.`marks` AS examinations_marks,
+     examinations.`modified` AS examinations_modified,
+     examinations.`result` AS examinations_result,
+     examinations.`status` AS examinations_status,
+     examinations.`objective_id` AS examinations_objective_id,
+     examinations.`user_id` AS examinations_user_id,
+     objectives.`id` AS objectives_id,
+     objectives.`answer` AS objectives_answer,
+     objectives.`created` AS objectives_created,
+     objectives.`marks` AS objectives_marks,
+     objectives.`modified` AS objectives_modified,
+     objectives.`option1` AS objectives_option1,
+     objectives.`option2` AS objectives_option2,
+     objectives.`option3` AS objectives_option3,
+     objectives.`option4` AS objectives_option4,
+     objectives.`question` AS objectives_question,
+     objectives.`status` AS objectives_status
+FROM
+     `users` users INNER JOIN `examresults` examresults ON users.`id` = examresults.`user_id`
+     INNER JOIN `examinations` examinations ON users.`id` = examinations.`user_id`
+     INNER JOIN `objectives` objectives ON examinations.`objective_id` = objectives.`id`]]>
+	</queryString>
+	<field name="users_id" class="java.lang.Integer"/>
+	<field name="users_className" class="java.lang.String"/>
+	<field name="users_created" class="java.sql.Date"/>
+	<field name="users_dob" class="java.sql.Date"/>
+	<field name="users_email" class="java.lang.String"/>
+	<field name="users_modified" class="java.sql.Date"/>
+	<field name="users_name" class="java.lang.String"/>
+	<field name="users_password" class="java.lang.String"/>
+	<field name="users_phone" class="java.lang.String"/>
+	<field name="users_status" class="java.lang.Integer"/>
+	<field name="examresults_id" class="java.lang.Integer"/>
+	<field name="examresults_created" class="java.sql.Date"/>
+	<field name="examresults_examDate" class="java.sql.Date"/>
+	<field name="examresults_marks" class="java.lang.Integer"/>
+	<field name="examresults_modified" class="java.sql.Date"/>
+	<field name="examresults_result" class="java.lang.String"/>
+	<field name="examresults_status" class="java.lang.Integer"/>
+	<field name="examresults_user_id" class="java.lang.Integer"/>
+	<field name="examinations_id" class="java.lang.Integer"/>
+	<field name="examinations_answer" class="java.lang.String"/>
+	<field name="examinations_created" class="java.sql.Date"/>
+	<field name="examinations_marks" class="java.lang.Integer"/>
+	<field name="examinations_modified" class="java.sql.Date"/>
+	<field name="examinations_result" class="java.lang.Boolean"/>
+	<field name="examinations_status" class="java.lang.Integer"/>
+	<field name="examinations_objective_id" class="java.lang.Integer"/>
+	<field name="examinations_user_id" class="java.lang.Integer"/>
+	<field name="objectives_id" class="java.lang.Integer"/>
+	<field name="objectives_answer" class="java.lang.String"/>
+	<field name="objectives_created" class="java.sql.Date"/>
+	<field name="objectives_marks" class="java.lang.Integer"/>
+	<field name="objectives_modified" class="java.sql.Date"/>
+	<field name="objectives_option1" class="java.lang.String"/>
+	<field name="objectives_option2" class="java.lang.String"/>
+	<field name="objectives_option3" class="java.lang.String"/>
+	<field name="objectives_option4" class="java.lang.String"/>
+	<field name="objectives_question" class="java.lang.String"/>
+	<field name="objectives_status" class="java.lang.Integer"/>
+	<background>
+		<band height="410" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="236" y="90" width="292" height="294" uuid="c1243c0f-d0ab-4529-aa06-9de09ba6f7f2"/>
+				<imageExpression><![CDATA["C:\\Users\\Giridhar\\Documents\\NetBeansProjects\\OnlineExamination\\src\\org\\nlt\\images\\nlt.png"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<detail>
+		<band height="399" splitType="Stretch">
+			<staticText>
+				<reportElement x="13" y="103" width="775" height="59" uuid="bb6aa2fd-0e76-43f5-bbdf-c98e4e3719d9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Cambria" size="44" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CERTIFICATE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="165" width="774" height="37" uuid="4bb6e360-acda-4e10-9271-d8676cfd29db"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OF COMPLETION]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="183" y="202" width="437" height="40" uuid="5834b750-fa25-4b1e-bea7-3e0edd21da1f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Comic Sans MS" size="24" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{users_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="242" width="645" height="29" forecolor="#FF3333" uuid="0d72c716-0232-4b7b-a0bf-cd343736bad2"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Successfully completed the "+$F{users_className}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="10" y="388" width="782" height="1" uuid="8bacf2d7-e0a0-45f5-a318-34482ec06139"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineStyle="Double" lineColor="#0000CC"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="10" y="6" width="782" height="1" uuid="f7adcd75-6cbd-4e68-915b-fab25cadff93"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineStyle="Double" lineColor="#003399"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="788" y="7" width="1" height="381" uuid="0aca9fd4-0968-48f3-a20a-3064459cf7b0"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineStyle="Double" lineColor="#330066"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="13" y="7" width="1" height="381" uuid="09a7e947-966f-4ac5-b366-bc1d95ee7eb7"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineStyle="Double" lineColor="#000099"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="47" y="285" width="223" height="30" uuid="187d6223-cc51-4b6c-946e-f4c73154f0fe"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Marks Obtained :"+$F{examresults_marks}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="444" y="285" width="217" height="30" uuid="06b7ba67-23da-4d9e-81c6-1a38c34d0184"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Result:"+$F{examresults_result}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="581" y="345" width="100" height="20" uuid="3219fc55-ff48-4e4e-b047-1264634e0cbd"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Signature]]></text>
+			</staticText>
+			<image>
+				<reportElement x="372" y="15" width="103" height="82" uuid="5797585a-0506-4d98-bda9-c885ce21f6ce"/>
+				<imageExpression><![CDATA["nlt.png"]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>

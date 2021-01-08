@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Marksheet" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="73667d96-7092-4a79-bf81-29063e56d976">
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     examinations.`id` AS examinations_id,
+     examinations.`answer` AS examinations_answer,
+     examinations.`created` AS examinations_created,
+     examinations.`marks` AS examinations_marks,
+     examinations.`modified` AS examinations_modified,
+     examinations.`result` AS examinations_result,
+     examinations.`status` AS examinations_status,
+     users.`className` AS users_className,
+     users.`email` AS users_email,
+     users.`name` AS users_name
+FROM
+     `users` users INNER JOIN `examinations` examinations ON users.`id` = examinations.`user_id`]]>
+	</queryString>
+	<field name="examinations_id" class="java.lang.Integer"/>
+	<field name="examinations_answer" class="java.lang.String"/>
+	<field name="examinations_created" class="java.sql.Date"/>
+	<field name="examinations_marks" class="java.lang.Integer"/>
+	<field name="examinations_modified" class="java.sql.Date"/>
+	<field name="examinations_result" class="java.lang.Boolean"/>
+	<field name="examinations_status" class="java.lang.Integer"/>
+	<field name="users_className" class="java.lang.String"/>
+	<field name="users_email" class="java.lang.String"/>
+	<field name="users_name" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
